@@ -38,4 +38,4 @@ spec:
         - name: DB_HOST
           value: postgres-service
         - name: ALLOWED_IP
-          value: 100.24.67.74
+          value: 3.226.245.96
