@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: django
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: django
@@ -20,21 +20,21 @@ spec:
         ports:
         - containerPort: 8000
         env:
-        - name: DB_USER
+        - name: POSTGRES_USER
           valueFrom:
             secretKeyRef:
               name: postgres-secret
-              key: DB_USER
-        - name: DB_PASSWORD
+              key: POSTGRES_USER
+        - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
               name: postgres-secret
-              key: DB_PASSWORD
-        - name: DB_NAME
+              key: POSTGRES_PASSWORD
+        - name: POSTGRES_DB
           valueFrom:
             secretKeyRef:
               name: postgres-secret
-              key: DB_NAME
+              key: POSTGRES_DB
         - name: DB_HOST
           value: postgres
         - name: ALLOWED_IP
