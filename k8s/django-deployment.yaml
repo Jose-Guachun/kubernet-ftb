@@ -36,6 +36,6 @@ spec:
               name: postgres-secret
               key: POSTGRES_DB
         - name: DB_HOST
-          value: postgres
+          value: 172.31.94.246
         - name: ALLOWED_IP
-          value: 3.87.71.240
+          value: 100.24.67.74
