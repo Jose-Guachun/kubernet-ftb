@@ -1,10 +1,15 @@
+# postgres-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres
+  name: postgres-service # Este es el nombre que usarás en Django. ¡Puedes cambiarlo!
+  labels:
+    app: postgres
 spec:
   selector:
-    app: postgres
+    app: postgres # Debe coincidir con las etiquetas de tu Deployment de PostgreSQL
   ports:
-  - port: 5432
-    targetPort: 5432
+    - protocol: TCP
+      port: 5432       # Puerto del Servicio
+      targetPort: 5432 # Puerto al que el contenedor de PostgreSQL está escuchando
+  type: ClusterIP      # Tipo de servicio: accesible solo dentro del clúster
