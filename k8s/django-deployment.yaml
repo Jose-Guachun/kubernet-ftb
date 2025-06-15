@@ -15,8 +15,8 @@ spec:
       containers:
       - name: django
         image: joseguachun/clasificacion_ftb:latest
-        command: ["python"]
-        args: ["manage.py", "runserver", "0.0.0.0:8000"]
+        command: ["/bin/sh", "-c"] # Cambia el command para usar un shell
+        args: ["sleep 10 && python manage.py runserver 0.0.0.0:8000"] # Añade un sleep de 10 segundos
         ports:
         - containerPort: 8000
         env:
